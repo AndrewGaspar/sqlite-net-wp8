@@ -9,3 +9,12 @@ bin
 test-results
 TestResults
 *.nupkg
+
+Debug/
+
+*.opensdf
+*.sdf
+
+packages/
+
+packages.config
