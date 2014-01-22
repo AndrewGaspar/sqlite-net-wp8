@@ -18,3 +18,5 @@ Debug/
 packages/
 
 packages.config
+
+ipch/

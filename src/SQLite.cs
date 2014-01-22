@@ -3046,6 +3046,11 @@ namespace SQLite
 		{
 			return ColumnBlob(stmt, index);
 		}
+
+        public static SQLite3.Result EnableLoadExtension(Sqlite3DatabaseHandle handle, int onoff)
+        {
+            return (SQLite3.Result)Sqlite3.sqlite3_enable_load_extension(handle, onoff);
+        }
 #endif
 
 		public enum ColType : int
