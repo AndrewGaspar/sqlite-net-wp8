@@ -6,7 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.IO;
 
-#if NETFX_CORE
+#if NETFX_CORE || WINDOWS_PHONE
 using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 using SetUp = Microsoft.VisualStudio.TestPlatform.UnitTestFramework.TestInitializeAttribute;
 using TestFixture = Microsoft.VisualStudio.TestPlatform.UnitTestFramework.TestClassAttribute;
@@ -126,7 +126,7 @@ namespace SQLite.Tests
 		public void SetUp()
 		{
 			SQLite.SQLiteConnectionPool.Shared.Reset ();
-#if NETFX_CORE
+#if NETFX_CORE || WINDOWS_PHONE
 			_connectionString = DatabaseName;
 			_path = Path.Combine (Windows.Storage.ApplicationData.Current.LocalFolder.Path, DatabaseName);
 			try {

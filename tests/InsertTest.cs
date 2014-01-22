@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using SQLite;
 
-#if NETFX_CORE
+#if NETFX_CORE || WINDOWS_PHONE
 using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 using SetUp = Microsoft.VisualStudio.TestPlatform.UnitTestFramework.TestInitializeAttribute;
 using TearDown = Microsoft.VisualStudio.TestPlatform.UnitTestFramework.TestCleanupAttribute;

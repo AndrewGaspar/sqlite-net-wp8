@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Sqlite", "..\BitcoinMobile\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLite.WindowsPhone", "SQLite.WindowsPhone\SQLite.WindowsPhone.csproj", "{4FC023BD-2B1E-4A7A-8468-D09D59653AEF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQlite.Tests.WindowsPhone", "SQlite.Tests.WindowsPhone\SQlite.Tests.WindowsPhone.csproj", "{30F836B3-E0F4-4F30-BCF7-0853E1A01D20}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -85,6 +87,34 @@ Global
 		{4FC023BD-2B1E-4A7A-8468-D09D59653AEF}.Release|x64.ActiveCfg = Release|Any CPU
 		{4FC023BD-2B1E-4A7A-8468-D09D59653AEF}.Release|x86.ActiveCfg = Release|x86
 		{4FC023BD-2B1E-4A7A-8468-D09D59653AEF}.Release|x86.Build.0 = Release|x86
+		{30F836B3-E0F4-4F30-BCF7-0853E1A01D20}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{30F836B3-E0F4-4F30-BCF7-0853E1A01D20}.Debug|ARM.ActiveCfg = Debug|ARM
+		{30F836B3-E0F4-4F30-BCF7-0853E1A01D20}.Debug|ARM.Build.0 = Debug|ARM
+		{30F836B3-E0F4-4F30-BCF7-0853E1A01D20}.Debug|ARM.Deploy.0 = Debug|ARM
+		{30F836B3-E0F4-4F30-BCF7-0853E1A01D20}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{30F836B3-E0F4-4F30-BCF7-0853E1A01D20}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{30F836B3-E0F4-4F30-BCF7-0853E1A01D20}.Debug|Mixed Platforms.Deploy.0 = Debug|x86
+		{30F836B3-E0F4-4F30-BCF7-0853E1A01D20}.Debug|Win32.ActiveCfg = Debug|x86
+		{30F836B3-E0F4-4F30-BCF7-0853E1A01D20}.Debug|Win32.Build.0 = Debug|x86
+		{30F836B3-E0F4-4F30-BCF7-0853E1A01D20}.Debug|Win32.Deploy.0 = Debug|x86
+		{30F836B3-E0F4-4F30-BCF7-0853E1A01D20}.Debug|x64.ActiveCfg = Debug|x86
+		{30F836B3-E0F4-4F30-BCF7-0853E1A01D20}.Debug|x86.ActiveCfg = Debug|x86
+		{30F836B3-E0F4-4F30-BCF7-0853E1A01D20}.Debug|x86.Build.0 = Debug|x86
+		{30F836B3-E0F4-4F30-BCF7-0853E1A01D20}.Debug|x86.Deploy.0 = Debug|x86
+		{30F836B3-E0F4-4F30-BCF7-0853E1A01D20}.Release|Any CPU.ActiveCfg = Release|x86
+		{30F836B3-E0F4-4F30-BCF7-0853E1A01D20}.Release|ARM.ActiveCfg = Release|ARM
+		{30F836B3-E0F4-4F30-BCF7-0853E1A01D20}.Release|ARM.Build.0 = Release|ARM
+		{30F836B3-E0F4-4F30-BCF7-0853E1A01D20}.Release|ARM.Deploy.0 = Release|ARM
+		{30F836B3-E0F4-4F30-BCF7-0853E1A01D20}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{30F836B3-E0F4-4F30-BCF7-0853E1A01D20}.Release|Mixed Platforms.Build.0 = Release|x86
+		{30F836B3-E0F4-4F30-BCF7-0853E1A01D20}.Release|Mixed Platforms.Deploy.0 = Release|x86
+		{30F836B3-E0F4-4F30-BCF7-0853E1A01D20}.Release|Win32.ActiveCfg = Release|x86
+		{30F836B3-E0F4-4F30-BCF7-0853E1A01D20}.Release|Win32.Build.0 = Release|x86
+		{30F836B3-E0F4-4F30-BCF7-0853E1A01D20}.Release|Win32.Deploy.0 = Release|x86
+		{30F836B3-E0F4-4F30-BCF7-0853E1A01D20}.Release|x64.ActiveCfg = Release|x86
+		{30F836B3-E0F4-4F30-BCF7-0853E1A01D20}.Release|x86.ActiveCfg = Release|x86
+		{30F836B3-E0F4-4F30-BCF7-0853E1A01D20}.Release|x86.Build.0 = Release|x86
+		{30F836B3-E0F4-4F30-BCF7-0853E1A01D20}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

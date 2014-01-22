@@ -1,7 +1,7 @@
 using System;
 using System.IO;
 
-#if NETFX_CORE
+#if NETFX_CORE || WINDOWS_PHONE
 class DescriptionAttribute : Attribute
 {
 	public DescriptionAttribute (string desc)
@@ -63,7 +63,7 @@ namespace SQLite.Tests
 	{
 		public static string GetTempFileName ()
 		{
-#if NETFX_CORE
+#if NETFX_CORE || WINDOWS_PHONE
 			var name = Guid.NewGuid () + ".sqlite";
 			return Path.Combine (Windows.Storage.ApplicationData.Current.LocalFolder.Path, name);
 #else

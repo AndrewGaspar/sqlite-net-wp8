@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 
-#if NETFX_CORE
+#if NETFX_CORE || WINDOWS_PHONE
 using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 using SetUp = Microsoft.VisualStudio.TestPlatform.UnitTestFramework.TestInitializeAttribute;
 using TestFixture = Microsoft.VisualStudio.TestPlatform.UnitTestFramework.TestClassAttribute;
@@ -60,7 +60,11 @@ namespace SQLite.Tests
             Assert.AreEqual("IndexedId", column.Name);
             Assert.IsFalse(column.Indices.Any());
 
+#if NETFX_CORE || WINDOWS_PHONE
+            Assert.ThrowsException<UnitTestAssertException>(() => CheckPK(db));
+#else
             Assert.Throws(typeof(AssertionException), () => CheckPK(db));
+#endif
         }
 
         [Test]

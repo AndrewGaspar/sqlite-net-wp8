@@ -2,7 +2,7 @@ using System.Linq;
 using System.Text;
 using SQLite;
 
-#if NETFX_CORE
+#if NETFX_CORE || WINDOWS_PHONE
 using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 using SetUp = Microsoft.VisualStudio.TestPlatform.UnitTestFramework.TestInitializeAttribute;
 using TestFixture = Microsoft.VisualStudio.TestPlatform.UnitTestFramework.TestClassAttribute;
@@ -35,9 +35,15 @@ namespace SQLite.Tests
 				db.CreateTable<UpperId> ();
 
 				var cols = db.GetTableInfo ("Test").ToList ();
+
+#if NETFX_CORE || WINDOWS_PHONE
+                Assert.Equals(cols.Count, 1);
+                Assert.Equals(cols[0].Name, "Id");
+#else
 				Assert.That (cols.Count, Is.EqualTo (1));
 				Assert.That (cols[0].Name, Is.EqualTo ("Id"));
-			}
+#endif
+            }
 		}
 	}
 }

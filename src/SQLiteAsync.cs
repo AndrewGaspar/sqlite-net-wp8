@@ -378,7 +378,7 @@ namespace SQLite
 		}
 	}
 
-	class SQLiteConnectionPool
+	public class SQLiteConnectionPool
 	{
 		class Entry
 		{
@@ -452,7 +452,7 @@ namespace SQLite
 		}
 	}
 
-	class SQLiteConnectionWithLock : SQLiteConnection
+	public class SQLiteConnectionWithLock : SQLiteConnection
 	{
 		readonly object _lockPoint = new object ();
 
