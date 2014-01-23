@@ -145,7 +145,7 @@ namespace SQLite.Tests
 		SQLiteAsyncConnection GetConnection (ref string path)
 		{
 			path = _path;
-			return new SQLiteAsyncConnection (_connectionString);
+			return new SQLiteAsyncConnection (_path);
 		}
 
 		[Test]

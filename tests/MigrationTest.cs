@@ -37,8 +37,8 @@ namespace SQLite.Tests
 				var cols = db.GetTableInfo ("Test").ToList ();
 
 #if NETFX_CORE || WINDOWS_PHONE
-                Assert.Equals(cols.Count, 1);
-                Assert.Equals(cols[0].Name, "Id");
+                Assert.AreEqual(cols.Count, 1);
+                Assert.AreEqual(cols[0].Name, "Id");
 #else
 				Assert.That (cols.Count, Is.EqualTo (1));
 				Assert.That (cols[0].Name, Is.EqualTo ("Id"));

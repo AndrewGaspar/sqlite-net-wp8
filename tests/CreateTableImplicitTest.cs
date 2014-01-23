@@ -61,7 +61,7 @@ namespace SQLite.Tests
             Assert.IsFalse(column.Indices.Any());
 
 #if NETFX_CORE || WINDOWS_PHONE
-            Assert.ThrowsException<UnitTestAssertException>(() => CheckPK(db));
+            Assert.ThrowsException<AssertFailedException>(() => CheckPK(db));
 #else
             Assert.Throws(typeof(AssertionException), () => CheckPK(db));
 #endif
