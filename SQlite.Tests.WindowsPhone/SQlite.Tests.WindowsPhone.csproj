@@ -20,9 +20,9 @@
     </SupportedCultures>
     <XapOutputs>true</XapOutputs>
     <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
-    <XapFilename>SQlite.Tests.WindowsPhone_$(Configuration)_$(Platform).xap</XapFilename>
+    <XapFilename>SQLite.Tests.WindowsPhone_$(Configuration)_$(Platform).xap</XapFilename>
     <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
-    <SilverlightAppEntry>SQlite.Tests.WindowsPhone.App</SilverlightAppEntry>
+    <SilverlightAppEntry>SQLite.Tests.WindowsPhone.App</SilverlightAppEntry>
     <ValidateXaml>false</ValidateXaml>
     <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
     <ThrowErrorsInValidation>true</ThrowErrorsInValidation>

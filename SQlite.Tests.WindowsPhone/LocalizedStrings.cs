@@ -1,6 +1,6 @@
-﻿using SQlite.Tests.WindowsPhone.Resources;
+﻿using SQLite.Tests.WindowsPhone.Resources;
 
-namespace SQlite.Tests.WindowsPhone
+namespace SQLite.Tests.WindowsPhone
 {
     /// <summary>
     /// Provides access to string resources.
