@@ -10,7 +10,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SQLite.WindowsPhone</RootNamespace>
-    <AssemblyName>SQLite</AssemblyName>
+    <AssemblyName>SQLiteNet</AssemblyName>
     <TargetFrameworkIdentifier>WindowsPhone</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
     <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
@@ -110,11 +110,6 @@
       <Link>SQLiteAsync.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <SDKReference Include="SQLite.WP80, Version=3.8.2">
-      <Name>SQLite for Windows Phone</Name>
-    </SDKReference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\BitcoinMobile\Bitlet\sqlite-net-wp8\Sqlite.vcxproj">

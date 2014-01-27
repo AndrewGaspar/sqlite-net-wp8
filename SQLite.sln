@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.30110.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Sqlite", "..\BitcoinMobile\Bitlet\sqlite-net-wp8\Sqlite.vcxproj", "{59B35F6C-E062-4F0E-88D8-13F3F82A24F3}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Sqlite", "sqlite-net-wp8\Sqlite.vcxproj", "{59B35F6C-E062-4F0E-88D8-13F3F82A24F3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLite.WindowsPhone", "SQLite.WindowsPhone\SQLite.WindowsPhone.csproj", "{4FC023BD-2B1E-4A7A-8468-D09D59653AEF}"
 EndProject
@@ -32,8 +32,7 @@ Global
 		{59B35F6C-E062-4F0E-88D8-13F3F82A24F3}.Debug|Mixed Platforms.Build.0 = Debug|Win32
 		{59B35F6C-E062-4F0E-88D8-13F3F82A24F3}.Debug|Win32.ActiveCfg = Debug|Win32
 		{59B35F6C-E062-4F0E-88D8-13F3F82A24F3}.Debug|Win32.Build.0 = Debug|Win32
-		{59B35F6C-E062-4F0E-88D8-13F3F82A24F3}.Debug|x64.ActiveCfg = Debug|x64
-		{59B35F6C-E062-4F0E-88D8-13F3F82A24F3}.Debug|x64.Build.0 = Debug|x64
+		{59B35F6C-E062-4F0E-88D8-13F3F82A24F3}.Debug|x64.ActiveCfg = Debug|Win32
 		{59B35F6C-E062-4F0E-88D8-13F3F82A24F3}.Debug|x86.ActiveCfg = Debug|Win32
 		{59B35F6C-E062-4F0E-88D8-13F3F82A24F3}.Debug|x86.Build.0 = Debug|Win32
 		{59B35F6C-E062-4F0E-88D8-13F3F82A24F3}.Release|Any CPU.ActiveCfg = Release|Win32
@@ -43,8 +42,7 @@ Global
 		{59B35F6C-E062-4F0E-88D8-13F3F82A24F3}.Release|Mixed Platforms.Build.0 = Release|Win32
 		{59B35F6C-E062-4F0E-88D8-13F3F82A24F3}.Release|Win32.ActiveCfg = Release|Win32
 		{59B35F6C-E062-4F0E-88D8-13F3F82A24F3}.Release|Win32.Build.0 = Release|Win32
-		{59B35F6C-E062-4F0E-88D8-13F3F82A24F3}.Release|x64.ActiveCfg = Release|x64
-		{59B35F6C-E062-4F0E-88D8-13F3F82A24F3}.Release|x64.Build.0 = Release|x64
+		{59B35F6C-E062-4F0E-88D8-13F3F82A24F3}.Release|x64.ActiveCfg = Release|Win32
 		{59B35F6C-E062-4F0E-88D8-13F3F82A24F3}.Release|x86.ActiveCfg = Release|Win32
 		{59B35F6C-E062-4F0E-88D8-13F3F82A24F3}.Release|x86.Build.0 = Release|Win32
 		{4FC023BD-2B1E-4A7A-8468-D09D59653AEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
