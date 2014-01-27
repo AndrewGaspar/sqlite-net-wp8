@@ -70,6 +70,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="..\SQLite.Tests.WindowsStore\ConsumerTests.cs">
+      <Link>ConsumerTests.cs</Link>
+    </Compile>
     <Compile Include="..\tests\AsyncTests.cs">
       <Link>AsyncTests.cs</Link>
     </Compile>
@@ -216,6 +219,10 @@
     <ProjectReference Include="..\SQLite.WindowsPhone\SQLite.WindowsPhone.csproj">
       <Project>{4FC023BD-2B1E-4A7A-8468-D09D59653AEF}</Project>
       <Name>SQLite.WindowsPhone</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SQLiteConsumer\SQLiteConsumer.csproj">
+      <Project>{CFFF6D44-393A-48FA-96A9-67FA092488B7}</Project>
+      <Name>SQLiteConsumer</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

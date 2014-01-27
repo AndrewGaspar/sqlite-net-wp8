@@ -199,6 +199,7 @@
     <Compile Include="..\tests\UniqueTest.cs">
       <Link>UniqueTest.cs</Link>
     </Compile>
+    <Compile Include="ConsumerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -225,6 +226,10 @@
     <ProjectReference Include="..\SQLite.WindowsStore\SQLite.WindowsStore.csproj">
       <Project>{7ad71886-ef2a-4ca1-b159-98e2f55d70e5}</Project>
       <Name>SQLite.WindowsStore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SQLiteConsumer\SQLiteConsumer.csproj">
+      <Project>{cfff6d44-393a-48fa-96a9-67fa092488b7}</Project>
+      <Name>SQLiteConsumer</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">

@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLite.WindowsStore", "SQLi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLite.Tests.WindowsStore", "SQLite.Tests.WindowsStore\SQLite.Tests.WindowsStore.csproj", "{FB3C4015-F0A4-4930-8457-3DFE8773715C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLite.PCL", "SQLite.PCL\SQLite.PCL.csproj", "{93904E35-1756-401C-B183-CB8E75C189CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLiteConsumer", "SQLiteConsumer\SQLiteConsumer.csproj", "{CFFF6D44-393A-48FA-96A9-67FA092488B7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -183,6 +187,38 @@ Global
 		{FB3C4015-F0A4-4930-8457-3DFE8773715C}.Release|x86.ActiveCfg = Release|x86
 		{FB3C4015-F0A4-4930-8457-3DFE8773715C}.Release|x86.Build.0 = Release|x86
 		{FB3C4015-F0A4-4930-8457-3DFE8773715C}.Release|x86.Deploy.0 = Release|x86
+		{93904E35-1756-401C-B183-CB8E75C189CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93904E35-1756-401C-B183-CB8E75C189CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93904E35-1756-401C-B183-CB8E75C189CA}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{93904E35-1756-401C-B183-CB8E75C189CA}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{93904E35-1756-401C-B183-CB8E75C189CA}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{93904E35-1756-401C-B183-CB8E75C189CA}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{93904E35-1756-401C-B183-CB8E75C189CA}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{93904E35-1756-401C-B183-CB8E75C189CA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{93904E35-1756-401C-B183-CB8E75C189CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93904E35-1756-401C-B183-CB8E75C189CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93904E35-1756-401C-B183-CB8E75C189CA}.Release|ARM.ActiveCfg = Release|Any CPU
+		{93904E35-1756-401C-B183-CB8E75C189CA}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{93904E35-1756-401C-B183-CB8E75C189CA}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{93904E35-1756-401C-B183-CB8E75C189CA}.Release|Win32.ActiveCfg = Release|Any CPU
+		{93904E35-1756-401C-B183-CB8E75C189CA}.Release|x64.ActiveCfg = Release|Any CPU
+		{93904E35-1756-401C-B183-CB8E75C189CA}.Release|x86.ActiveCfg = Release|Any CPU
+		{CFFF6D44-393A-48FA-96A9-67FA092488B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFFF6D44-393A-48FA-96A9-67FA092488B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFFF6D44-393A-48FA-96A9-67FA092488B7}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{CFFF6D44-393A-48FA-96A9-67FA092488B7}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{CFFF6D44-393A-48FA-96A9-67FA092488B7}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{CFFF6D44-393A-48FA-96A9-67FA092488B7}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{CFFF6D44-393A-48FA-96A9-67FA092488B7}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{CFFF6D44-393A-48FA-96A9-67FA092488B7}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{CFFF6D44-393A-48FA-96A9-67FA092488B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFFF6D44-393A-48FA-96A9-67FA092488B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFFF6D44-393A-48FA-96A9-67FA092488B7}.Release|ARM.ActiveCfg = Release|Any CPU
+		{CFFF6D44-393A-48FA-96A9-67FA092488B7}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{CFFF6D44-393A-48FA-96A9-67FA092488B7}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{CFFF6D44-393A-48FA-96A9-67FA092488B7}.Release|Win32.ActiveCfg = Release|Any CPU
+		{CFFF6D44-393A-48FA-96A9-67FA092488B7}.Release|x64.ActiveCfg = Release|Any CPU
+		{CFFF6D44-393A-48FA-96A9-67FA092488B7}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -23,6 +23,10 @@
 #define USE_CSHARP_SQLITE
 #endif
 
+#if NETFX_CORE || PCL_SHIM
+#define NEW_REFLECTION_API
+#endif
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -141,6 +145,9 @@ namespace SQLite
 		/// </param>
 		public SQLiteConnection (string databasePath, SQLiteOpenFlags openFlags, bool storeDateTimeAsTicks = false)
 		{
+#if PCL_SHIM
+            throw new NotImplementedException();
+#else
 			if (string.IsNullOrEmpty (databasePath))
 				throw new ArgumentException ("Must be specified", "databasePath");
 
@@ -171,6 +178,7 @@ namespace SQLite
 			StoreDateTimeAsTicks = storeDateTimeAsTicks;
 			
 			BusyTimeout = TimeSpan.FromSeconds (0.1);
+#endif
 		}
 		
 		static SQLiteConnection ()
@@ -928,6 +936,9 @@ namespace SQLite
 
 		void DoSavePointExecute (string savepoint, string cmd)
 		{
+#if PCL_SHIM
+            throw new NotImplementedException();
+#else
 			// Validate the savepoint
 			int firstLen = savepoint.IndexOf ('D');
 			if (firstLen >= 2 && savepoint.Length > firstLen + 1) {
@@ -949,6 +960,7 @@ namespace SQLite
 			}
 
 			throw new ArgumentException ("savePoint is not valid, and should be the result of a call to SaveTransactionPoint.", "savePoint");
+#endif
 		}
 
 		/// <summary>
@@ -1167,6 +1179,9 @@ namespace SQLite
 	    /// </returns>
 	    public int Insert (object obj, string extra, Type objType)
 		{
+#if PCL_SHIM
+            throw new NotImplementedException();
+#else
 			if (obj == null || objType == null) {
 				return 0;
 			}
@@ -1225,6 +1240,7 @@ namespace SQLite
 			}
 			
 			return count;
+#endif
 		}
 
 		/// <summary>
@@ -1536,6 +1552,9 @@ namespace SQLite
 
         public TableMapping(Type type, CreateFlags createFlags = CreateFlags.None)
 		{
+#if PCL_SHIM
+            throw new NotImplementedException();
+#else
 			MappedType = type;
 
 #if NETFX_CORE
@@ -1584,6 +1603,7 @@ namespace SQLite
 				// People should not be calling Get/Find without a PK
 				GetByPrimaryKeySql = string.Format ("select * from \"{0}\" limit 1", TableName);
 			}
+#endif
 		}
 
 		public bool HasAutoIncPK { get; private set; }
@@ -1785,7 +1805,7 @@ namespace SQLite
 				return "varchar(" + len + ")";
 			} else if (clrType == typeof(DateTime)) {
 				return storeDateTimeAsTicks ? "bigint" : "datetime";
-#if !NETFX_CORE
+#if !NEW_REFLECTION_API
 			} else if (clrType.IsEnum) {
 #else
 			} else if (clrType.GetTypeInfo().IsEnum) {
@@ -1803,7 +1823,7 @@ namespace SQLite
 		public static bool IsPK (MemberInfo p)
 		{
 			var attrs = p.GetCustomAttributes (typeof(PrimaryKeyAttribute), true);
-#if !NETFX_CORE
+#if !NEW_REFLECTION_API
 			return attrs.Length > 0;
 #else
 			return attrs.Count() > 0;
@@ -1813,7 +1833,7 @@ namespace SQLite
 		public static string Collation (MemberInfo p)
 		{
 			var attrs = p.GetCustomAttributes (typeof(CollationAttribute), true);
-#if !NETFX_CORE
+#if !NEW_REFLECTION_API
 			if (attrs.Length > 0) {
 				return ((CollationAttribute)attrs [0]).Value;
 #else
@@ -1828,7 +1848,7 @@ namespace SQLite
 		public static bool IsAutoInc (MemberInfo p)
 		{
 			var attrs = p.GetCustomAttributes (typeof(AutoIncrementAttribute), true);
-#if !NETFX_CORE
+#if !NEW_REFLECTION_API
 			return attrs.Length > 0;
 #else
 			return attrs.Count() > 0;
@@ -1844,7 +1864,7 @@ namespace SQLite
 		public static int MaxStringLength(PropertyInfo p)
 		{
 			var attrs = p.GetCustomAttributes (typeof(MaxLengthAttribute), true);
-#if !NETFX_CORE
+#if !NEW_REFLECTION_API
 			if (attrs.Length > 0) {
 				return ((MaxLengthAttribute)attrs [0]).Value;
 #else
@@ -2068,7 +2088,7 @@ namespace SQLite
 					else {
 						SQLite3.BindText (stmt, index, ((DateTime)value).ToString ("yyyy-MM-dd HH:mm:ss"), -1, NegativePointer);
 					}
-#if !NETFX_CORE
+#if !NEW_REFLECTION_API
 				} else if (value.GetType().IsEnum) {
 #else
 				} else if (value.GetType().GetTypeInfo().IsEnum) {
@@ -2116,7 +2136,7 @@ namespace SQLite
 						var text = SQLite3.ColumnString (stmt, index);
 						return DateTime.Parse (text);
 					}
-#if !NETFX_CORE
+#if !NEW_REFLECTION_API
 				} else if (clrType.IsEnum) {
 #else
 				} else if (clrType.GetTypeInfo().IsEnum) {
@@ -2545,14 +2565,14 @@ namespace SQLite
 					//
 					object val = null;
 					
-#if !NETFX_CORE
+#if !NEW_REFLECTION_API
 					if (mem.Member.MemberType == MemberTypes.Property) {
 #else
 					if (mem.Member is PropertyInfo) {
 #endif
 						var m = (PropertyInfo)mem.Member;
 						val = m.GetValue (obj, null);
-#if !NETFX_CORE
+#if !NEW_REFLECTION_API
 					} else if (mem.Member.MemberType == MemberTypes.Field) {
 #else
 					} else if (mem.Member is FieldInfo) {
@@ -2564,7 +2584,7 @@ namespace SQLite
 						val = m.GetValue (obj);
 #endif
 					} else {
-#if !NETFX_CORE
+#if !NEW_REFLECTION_API
 						throw new NotSupportedException ("MemberExpr: " + mem.Member.MemberType);
 #else
 						throw new NotSupportedException ("MemberExpr: " + mem.Member.DeclaringType);
@@ -2733,7 +2753,7 @@ namespace SQLite
 			Serialized = 3
 		}
 
-#if !USE_CSHARP_SQLITE && !USE_WINRT_NATIVE_SQLITE
+#if !USE_CSHARP_SQLITE && !USE_WINRT_NATIVE_SQLITE && !PCL_SHIM
 		[DllImport("sqlite3", EntryPoint = "sqlite3_open", CallingConvention=CallingConvention.Cdecl)]
 		public static extern Result Open ([MarshalAs(UnmanagedType.LPStr)] string filename, out IntPtr db);
 
@@ -2871,12 +2891,18 @@ namespace SQLite
 #else
         public static Result Open(string filename, out Sqlite3DatabaseHandle db)
         {
+#if PCL_SHIM
+            throw new NotImplementedException();
+#else
             return (Result) Sqlite3.sqlite3_open(filename, out db);
+#endif
         }
 
 		public static Result Open(string filename, out Sqlite3DatabaseHandle db, int flags, IntPtr zVfs)
 		{
-#if USE_WINRT_NATIVE_SQLITE
+#if PCL_SHIM
+            throw new NotImplementedException();
+#elif USE_WINRT_NATIVE_SQLITE
 			return (Result)Sqlite3.sqlite3_open_v2(filename, out db, flags, "");
 #else
 			return (Result)Sqlite3.sqlite3_open_v2(filename, out db, flags, null);
@@ -2885,21 +2911,36 @@ namespace SQLite
 
 		public static Result Close(Sqlite3DatabaseHandle db)
 		{
+#if PCL_SHIM
+            throw new NotImplementedException();
+#else
 			return (Result)Sqlite3.sqlite3_close(db);
+#endif
 		}
 
 		public static Result BusyTimeout(Sqlite3DatabaseHandle db, int milliseconds)
 		{
+#if PCL_SHIM
+            throw new NotImplementedException();
+#else
 			return (Result)Sqlite3.sqlite3_busy_timeout(db, milliseconds);
+#endif
 		}
 
 		public static int Changes(Sqlite3DatabaseHandle db)
 		{
+#if PCL_SHIM
+            throw new NotImplementedException();
+#else
 			return Sqlite3.sqlite3_changes(db);
+#endif
 		}
 
 		public static Sqlite3Statement Prepare2(Sqlite3DatabaseHandle db, string query)
 		{
+#if PCL_SHIM
+            throw new NotImplementedException();
+#else
 			Sqlite3Statement stmt = default(Sqlite3Statement);
 #if USE_WINRT_NATIVE_SQLITE
 			var r = Sqlite3.sqlite3_prepare_v2(db, query, out stmt);
@@ -2912,61 +2953,104 @@ namespace SQLite
 				throw SQLiteException.New((Result)r, GetErrmsg(db));
 			}
 			return stmt;
+#endif
 		}
 
 		public static Result Step(Sqlite3Statement stmt)
 		{
+#if PCL_SHIM
+            throw new NotImplementedException();
+#else
 			return (Result)Sqlite3.sqlite3_step(stmt);
+#endif
 		}
 
 		public static Result Reset(Sqlite3Statement stmt)
 		{
+#if PCL_SHIM
+            throw new NotImplementedException();
+#else
 			return (Result)Sqlite3.sqlite3_reset(stmt);
+#endif
 		}
 
 		public static Result Finalize(Sqlite3Statement stmt)
 		{
+#if PCL_SHIM
+            throw new NotImplementedException();
+#else
 			return (Result)Sqlite3.sqlite3_finalize(stmt);
+#endif
 		}
 
 		public static long LastInsertRowid(Sqlite3DatabaseHandle db)
 		{
+#if PCL_SHIM
+            throw new NotImplementedException();
+#else
 			return Sqlite3.sqlite3_last_insert_rowid(db);
+#endif
 		}
 
 		public static string GetErrmsg(Sqlite3DatabaseHandle db)
 		{
+#if PCL_SHIM
+            throw new NotImplementedException();
+#else
 			return Sqlite3.sqlite3_errmsg(db);
+#endif
 		}
 
 		public static int BindParameterIndex(Sqlite3Statement stmt, string name)
 		{
+#if PCL_SHIM
+            throw new NotImplementedException();
+#else
 			return Sqlite3.sqlite3_bind_parameter_index(stmt, name);
+#endif
 		}
 
 		public static int BindNull(Sqlite3Statement stmt, int index)
 		{
+#if PCL_SHIM
+            throw new NotImplementedException();
+#else
 			return Sqlite3.sqlite3_bind_null(stmt, index);
+#endif
 		}
 
 		public static int BindInt(Sqlite3Statement stmt, int index, int val)
 		{
+#if PCL_SHIM
+            throw new NotImplementedException();
+#else
 			return Sqlite3.sqlite3_bind_int(stmt, index, val);
+#endif
 		}
 
 		public static int BindInt64(Sqlite3Statement stmt, int index, long val)
 		{
+#if PCL_SHIM
+            throw new NotImplementedException();
+#else
 			return Sqlite3.sqlite3_bind_int64(stmt, index, val);
+#endif
 		}
 
 		public static int BindDouble(Sqlite3Statement stmt, int index, double val)
 		{
+#if PCL_SHIM
+            throw new NotImplementedException();
+#else
 			return Sqlite3.sqlite3_bind_double(stmt, index, val);
+#endif
 		}
 
 		public static int BindText(Sqlite3Statement stmt, int index, string val, int n, IntPtr free)
 		{
-#if USE_WINRT_NATIVE_SQLITE
+#if PCL_SHIM
+            throw new NotImplementedException();
+#elif USE_WINRT_NATIVE_SQLITE
 			return Sqlite3.sqlite3_bind_text(stmt, index, val, n);
 #else
 			return Sqlite3.sqlite3_bind_text(stmt, index, val, n, null);
@@ -2975,7 +3059,9 @@ namespace SQLite
 
 		public static int BindBlob(Sqlite3Statement stmt, int index, byte[] val, int n, IntPtr free)
 		{
-#if USE_WINRT_NATIVE_SQLITE
+#if PCL_SHIM
+            throw new NotImplementedException();
+#elif USE_WINRT_NATIVE_SQLITE
 			return Sqlite3.sqlite3_bind_blob(stmt, index, val, n);
 #else
 			return Sqlite3.sqlite3_bind_blob(stmt, index, val, n, null);
@@ -2984,72 +3070,128 @@ namespace SQLite
 
 		public static int ColumnCount(Sqlite3Statement stmt)
 		{
+#if PCL_SHIM
+            throw new NotImplementedException();
+#else
 			return Sqlite3.sqlite3_column_count(stmt);
+#endif
 		}
 
 		public static string ColumnName(Sqlite3Statement stmt, int index)
 		{
+#if PCL_SHIM
+            throw new NotImplementedException();
+#else
 			return Sqlite3.sqlite3_column_name(stmt, index);
+#endif
 		}
 
 		public static string ColumnName16(Sqlite3Statement stmt, int index)
 		{
+#if PCL_SHIM
+            throw new NotImplementedException();
+#else
 			return Sqlite3.sqlite3_column_name(stmt, index);
+#endif
 		}
 
 		public static ColType ColumnType(Sqlite3Statement stmt, int index)
 		{
+#if PCL_SHIM
+            throw new NotImplementedException();
+#else
 			return (ColType)Sqlite3.sqlite3_column_type(stmt, index);
+#endif
 		}
 
 		public static int ColumnInt(Sqlite3Statement stmt, int index)
 		{
+#if PCL_SHIM
+            throw new NotImplementedException();
+#else
 			return Sqlite3.sqlite3_column_int(stmt, index);
+#endif
 		}
 
 		public static long ColumnInt64(Sqlite3Statement stmt, int index)
 		{
+#if PCL_SHIM
+            throw new NotImplementedException();
+#else
 			return Sqlite3.sqlite3_column_int64(stmt, index);
+#endif
 		}
 
 		public static double ColumnDouble(Sqlite3Statement stmt, int index)
 		{
+#if PCL_SHIM
+            throw new NotImplementedException();
+#else
 			return Sqlite3.sqlite3_column_double(stmt, index);
+#endif
 		}
 
 		public static string ColumnText(Sqlite3Statement stmt, int index)
 		{
+#if PCL_SHIM
+            throw new NotImplementedException();
+#else
 			return Sqlite3.sqlite3_column_text(stmt, index);
+#endif
 		}
 
 		public static string ColumnText16(Sqlite3Statement stmt, int index)
 		{
+#if PCL_SHIM
+            throw new NotImplementedException();
+#else
 			return Sqlite3.sqlite3_column_text(stmt, index);
+#endif
 		}
 
 		public static byte[] ColumnBlob(Sqlite3Statement stmt, int index)
 		{
+#if PCL_SHIM
+            throw new NotImplementedException();
+#else
 			return Sqlite3.sqlite3_column_blob(stmt, index);
+#endif
 		}
 
 		public static int ColumnBytes(Sqlite3Statement stmt, int index)
 		{
+#if PCL_SHIM
+            throw new NotImplementedException();
+#else
 			return Sqlite3.sqlite3_column_bytes(stmt, index);
+#endif
 		}
 
 		public static string ColumnString(Sqlite3Statement stmt, int index)
 		{
+#if PCL_SHIM
+            throw new NotImplementedException();
+#else
 			return Sqlite3.sqlite3_column_text(stmt, index);
+#endif
 		}
 
 		public static byte[] ColumnByteArray(Sqlite3Statement stmt, int index)
 		{
+#if PCL_SHIM
+            throw new NotImplementedException();
+#else
 			return ColumnBlob(stmt, index);
+#endif
 		}
 
         public static SQLite3.Result EnableLoadExtension(Sqlite3DatabaseHandle handle, int onoff)
         {
+#if PCL_SHIM
+            throw new NotImplementedException();
+#else
             return (SQLite3.Result)Sqlite3.sqlite3_enable_load_extension(handle, onoff);
+#endif
         }
 #endif
 
