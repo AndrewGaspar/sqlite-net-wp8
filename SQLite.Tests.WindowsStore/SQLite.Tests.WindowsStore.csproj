@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FB3C4015-F0A4-4930-8457-3DFE8773715C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SQLite.Tests.WindowsStore</RootNamespace>
+    <AssemblyName>SQLite.Tests.WindowsStore</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <TargetPlatformVersion>8.1</TargetPlatformVersion>
+    <MinimumVisualStudioVersion>12</MinimumVisualStudioVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <PackageCertificateKeyFile>SQLite.Tests.WindowsStore_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <AppxBundle>Never</AppxBundle>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AppXPackage>True</AppXPackage>
+    <AppxPackageIncludePrivateSymbols>true</AppxPackageIncludePrivateSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <!--A reference to the entire .Net Framework and Windows SDK are automatically included-->
+    <SDKReference Include="MSTestFramework, Version=11.0" />
+    <SDKReference Include="TestPlatform, Version=11.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\tests\AsyncTests.cs">
+      <Link>AsyncTests.cs</Link>
+    </Compile>
+    <Compile Include="..\tests\BooleanTest.cs">
+      <Link>BooleanTest.cs</Link>
+    </Compile>
+    <Compile Include="..\tests\ByteArrayTest.cs">
+      <Link>ByteArrayTest.cs</Link>
+    </Compile>
+    <Compile Include="..\tests\CollateTest.cs">
+      <Link>CollateTest.cs</Link>
+    </Compile>
+    <Compile Include="..\tests\ConnectionTrackingTest.cs">
+      <Link>ConnectionTrackingTest.cs</Link>
+    </Compile>
+    <Compile Include="..\tests\ContainsTest.cs">
+      <Link>ContainsTest.cs</Link>
+    </Compile>
+    <Compile Include="..\tests\CreateTableImplicitTest.cs">
+      <Link>CreateTableImplicitTest.cs</Link>
+    </Compile>
+    <Compile Include="..\tests\CreateTableTest.cs">
+      <Link>CreateTableTest.cs</Link>
+    </Compile>
+    <Compile Include="..\tests\DateTimeTest.cs">
+      <Link>DateTimeTest.cs</Link>
+    </Compile>
+    <Compile Include="..\tests\DeleteTest.cs">
+      <Link>DeleteTest.cs</Link>
+    </Compile>
+    <Compile Include="..\tests\DropTableTest.cs">
+      <Link>DropTableTest.cs</Link>
+    </Compile>
+    <Compile Include="..\tests\EqualsTest.cs">
+      <Link>EqualsTest.cs</Link>
+    </Compile>
+    <Compile Include="..\tests\ExceptionAssert.cs">
+      <Link>ExceptionAssert.cs</Link>
+    </Compile>
+    <Compile Include="..\tests\GuidTests.cs">
+      <Link>GuidTests.cs</Link>
+    </Compile>
+    <Compile Include="..\tests\InheritanceTest.cs">
+      <Link>InheritanceTest.cs</Link>
+    </Compile>
+    <Compile Include="..\tests\InsertTest.cs">
+      <Link>InsertTest.cs</Link>
+    </Compile>
+    <Compile Include="..\tests\JoinTest.cs">
+      <Link>JoinTest.cs</Link>
+    </Compile>
+    <Compile Include="..\tests\LinqTest.cs">
+      <Link>LinqTest.cs</Link>
+    </Compile>
+    <Compile Include="..\tests\MappingTest.cs">
+      <Link>MappingTest.cs</Link>
+    </Compile>
+    <Compile Include="..\tests\MigrationTest.cs">
+      <Link>MigrationTest.cs</Link>
+    </Compile>
+    <Compile Include="..\tests\NullableTest.cs">
+      <Link>NullableTest.cs</Link>
+    </Compile>
+    <Compile Include="..\tests\OpenTests.cs">
+      <Link>OpenTests.cs</Link>
+    </Compile>
+    <Compile Include="..\tests\ScalarTest.cs">
+      <Link>ScalarTest.cs</Link>
+    </Compile>
+    <Compile Include="..\tests\SkipTest.cs">
+      <Link>SkipTest.cs</Link>
+    </Compile>
+    <Compile Include="..\tests\StringQueryTest.cs">
+      <Link>StringQueryTest.cs</Link>
+    </Compile>
+    <Compile Include="..\tests\TestDb.cs">
+      <Link>TestDb.cs</Link>
+    </Compile>
+    <Compile Include="..\tests\TransactionTest.cs">
+      <Link>TransactionTest.cs</Link>
+    </Compile>
+    <Compile Include="..\tests\UnicodeTest.cs">
+      <Link>UnicodeTest.cs</Link>
+    </Compile>
+    <Compile Include="..\tests\UniqueTest.cs">
+      <Link>UniqueTest.cs</Link>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+    <None Include="SQLite.Tests.WindowsStore_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\UnitTestLogo.scale-100.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\UnitTestSmallLogo.scale-100.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\UnitTestSplashScreen.scale-100.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\UnitTestStoreLogo.scale-100.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SQLite.WindowsStore\SQLite.WindowsStore.csproj">
+      <Project>{7ad71886-ef2a-4ca1-b159-98e2f55d70e5}</Project>
+      <Name>SQLite.WindowsStore</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
+    <VisualStudioVersion>12.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>  
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
